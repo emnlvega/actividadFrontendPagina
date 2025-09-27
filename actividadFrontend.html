@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <p>Tareas totales: <span id="contador">0</span></p>
+    <ul id="lista-tareas"></ul>
+    <button onclick="agregarTarea()">Agregar Tarea</button>
+
+    <script>
+        // empezamos con el contador en cero
+        let contador = 0;
+
+        // esta funcion se ejecuta cuando hacemos click en el boton
+        function agregarTarea() {
+            // creamos un nuevo elemento de lista
+            const nuevaTarea = document.createElement('li');
+            // le ponemos el texto, usando el numero que toca
+            nuevaTarea.textContent = 'Tarea ' + (contador + 1);
+            // encontramos la lista en la pagina
+            const listaTareas = document.getElementById('lista-tareas');
+            // metemos la nueva tarea en la lista
+            listaTareas.appendChild(nuevaTarea);
+            // aumentamos el contador en uno
+            contador++;
+            // buscamos el span donde va el numero
+            const elementoContador = document.getElementById('contador');
+            // actualizamos el numero que se ve
+            elementoContador.textContent = contador;
+        }
+    </script>
+</body>
+</html>
